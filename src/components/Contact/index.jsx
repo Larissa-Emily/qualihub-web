@@ -19,7 +19,7 @@ export default function Contact() {
 
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:3001/contact", {
+      const response = await fetch("https://qualihub-web-back.onrender.com/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
