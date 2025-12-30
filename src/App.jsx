@@ -1,10 +1,13 @@
-import './App.css'
+import "./App.css";
 import { BrowserRouter } from "react-router-dom";
-import RoutesApp from "./routes/index.jsx"
-export default function App(){
-  return(
+import RoutesApp from "./routes/index.jsx";
+import { ToastContainer } from "react-toastify";
+
+export default function App() {
+  return (
     <BrowserRouter>
       <RoutesApp />
+      <ToastContainer />
     </BrowserRouter>
-  )
+  );
 }

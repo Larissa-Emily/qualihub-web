@@ -16,16 +16,16 @@ export default function ServiceSection() {
 
         {/* Cards */}
         <div
-      className="
+          className="
         grid
         grid-cols-1
         lgx:grid-cols-2
         xlx:grid-cols-4
-        gap-8 xlx:gap-12
+        gap-8 xlx:gap-[200px]
         justify-items-center
         xl:justify-items-start
       "
-    >
+        >
           {/* Card 1 */}
           <div className="w-[360px] border border-[#E6E6E6] rounded-lg p-6 ">
             <div className="flex items-start xl:justify-center gap-3 mb-4">

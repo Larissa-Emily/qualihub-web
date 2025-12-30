@@ -1,49 +1,55 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [messageText, setMessageText] = useState("");
+  const [loading, setLoading] = useState(false);
 
   async function handleSendContact(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!name || !email || !phone || !messageText) {
-    alert("Todos os campos devem ser preenchidos!");
-    return;
-  }
-
-  try {
-    const response = await fetch("http://localhost:3001/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name,
-        email,
-        phone,
-        messageText,
-      }),
-    });
-
-    if (!response.ok) {
-      const error = await response.json();
-      alert(error.error || "Erro ao enviar mensagem");
+    if (!name || !email || !phone || !messageText) {
+      toast.error("Todos os campos devem ser preenchidos!");
       return;
     }
 
-    alert("Mensagem enviada com sucesso!");
+    try {
+      setLoading(true);
+      const response = await fetch("http://localhost:3001/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          messageText,
+        }),
+      });
 
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessageText("");
+      if (!response.ok) {
+        const error = await response.json();
+        toast.error(error.error || "Erro ao enviar mensagem");
+        return;
+      }
 
-  } catch (err) {
-    console.error(err);
-    alert("Erro de conexão com o servidor");
+      toast.success("Mensagem enviada com sucesso!");
+      toast.success("Em breve te retornaremos.");
+
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessageText("");
+    } catch (err) {
+      console.error(err);
+      toast.error("Erro de conexão com o servidor");
+    } finally {
+      setLoading(false);
+    }
   }
-}
 
   return (
     <section className="py-20 text-[#064282]" id="contact">
@@ -129,9 +135,34 @@ export default function Contact() {
           {/* BOTÃO */}
           <button
             type="submit"
-            className="w-full h-[48px] bg-[#FC7031] hover:bg-[#e9652b] transition text-white font-semibold rounded-lg text-[15px]"
+            disabled={loading}
+            className={`
+    w-full
+    h-[48px]
+    flex
+    items-center
+    justify-center
+    gap-2
+    rounded-lg
+    text-[15px]
+    font-semibold
+    transition
+    ${
+      loading
+        ? "bg-[#FC7031]/70 cursor-not-allowed"
+        : "bg-[#FC7031] hover:bg-[#e9652b]"
+    }
+    text-white
+  `}
           >
-            Enviar mensagem
+            {loading ? (
+              <>
+                <AiOutlineLoading3Quarters className="animate-spin text-[18px]" />
+                Enviando...
+              </>
+            ) : (
+              "Enviar mensagem"
+            )}
           </button>
         </form>
       </div>
