@@ -72,7 +72,7 @@ export default function ChoiceSection() {
         <div className="flex justify-center xl:justify-end">
           <img
             src={VitalySection}
-            alt="Profissional trabalhando em notebook"
+            alt="consultoria em qualidade de software"
             className="w-full max-w-[520px] h-auto object-cover rounded-xl"
           />
         </div>

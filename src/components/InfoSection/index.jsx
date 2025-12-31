@@ -33,7 +33,7 @@ export default function InfoSection() {
         <div className="flex justify-center xl:justify-end">
           <img
             src={InfoImage}
-            alt="imagem de escritório"
+            alt="consultoria em qualidade de software"
             className="w-full max-w-[520px] h-auto object-cover rounded-xl"
           />
         </div>

@@ -21,7 +21,7 @@ export default function Home() {
             </p>
 
             <button className="mt-8 bg-[#FC7031] hover:bg-[#e9652b] transition text-white font-semibold px-8 py-3 rounded-md">
-              Conheça nossa abordagem
+              <a href="#contact">Conheça nossa abordagem</a>
             </button>
           </div>
 
@@ -30,7 +30,7 @@ export default function Home() {
             <div className="w-full max-w-[420px] md:max-w-[520px] xl:max-w-[560px]">
               <img
                 src={HeroImage}
-                alt="Profissional de tecnologia"
+                alt="consultoria em qualidade de software"
                 className="w-full h-auto object-cover rounded-2xl shadow-lg"
               />
             </div>
