@@ -23,7 +23,7 @@ export default function Product() {
               Nossos produtos
             </h3>
 
-            <h1 className="text-3xl md:text-[35px] lg:text-5xl font-bold text-[#064282] leading-tight mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#064282] leading-tight mb-6">
               Soluções integradas que impulsionam eficiência, segurança e
               crescimento
             </h1>
