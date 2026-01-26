@@ -1,9 +1,28 @@
 import { useState } from "react";
 import QualiHubLogo from "../../assets/logo-qualihub.png";
 import { FiMenu, FiX } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+
 export default function MenuBar() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  function goToSection(sectionId) {
+    setOpen(false);
+
+    // Se já estiver no Home, apenas faz scroll
+    if (location.pathname === "/") {
+      const el = document.getElementById(sectionId);
+      el?.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
+
+    // Se estiver em outra rota (ex: /product), volta pro Home
+    navigate("/", {
+      state: { scrollTo: sectionId },
+    });
+  }
 
   return (
     <header className="w-full fixed top-0 z-[999] bg-white border-b border-[#f0f0f0]">
@@ -15,33 +34,48 @@ export default function MenuBar() {
         <nav className="hidden lg:block">
           <ul className="flex gap-8 text-[18px] font-semibold text-[#064282]">
             <li>
-              <a href="/#home" className="hover:border-b-2 border-[#FC7031]">
+              <button
+                onClick={() => goToSection("home")}
+                className="hover:border-b-2 border-[#FC7031]"
+              >
                 Home
-              </a>
+              </button>
             </li>
             <li>
-              <a href="/#about" className="hover:border-b-2 border-[#FC7031]">
+              <button
+                onClick={() => goToSection("about")}
+                className="hover:border-b-2 border-[#FC7031]"
+              >
                 Sobre
-              </a>
+              </button>
             </li>
             <li>
-              <a href="/#service" className="hover:border-b-2 border-[#FC7031]">
+              <button
+                onClick={() => goToSection("service")}
+                className="hover:border-b-2 border-[#FC7031]"
+              >
                 Serviços
-              </a>
+              </button>
             </li>
             <li>
-              <a href="/#more" className="hover:border-b-2 border-[#FC7031]">
+              <button
+                onClick={() => goToSection("more")}
+                className="hover:border-b-2 border-[#FC7031]"
+              >
                 Mais
-              </a>
+              </button>
             </li>
             <li>
-              <a href="/#contact" className="hover:border-b-2 border-[#FC7031]">
+              <button
+                onClick={() => goToSection("contact")}
+                className="hover:border-b-2 border-[#FC7031]"
+              >
                 Contato
-              </a>
+              </button>
             </li>
             <li>
               <Link
-                to={"/product"}
+                to="/product"
                 className="hover:border-b-2 border-[#FC7031]"
               >
                 Nossos Produtos
@@ -65,32 +99,22 @@ export default function MenuBar() {
         <div className="lg:hidden bg-white border-t border-[#f0f0f0] shadow-md">
           <ul className="flex flex-col px-6 py-6 gap-4 text-[18px] font-semibold text-[#064282]">
             <li>
-              <a onClick={() => setOpen(false)} href="/#home">
-                Home
-              </a>
+              <button onClick={() => goToSection("home")}>Home</button>
             </li>
             <li>
-              <a onClick={() => setOpen(false)} href="/#about">
-                Sobre
-              </a>
+              <button onClick={() => goToSection("about")}>Sobre</button>
             </li>
             <li>
-              <a onClick={() => setOpen(false)} href="/#service">
-                Serviços
-              </a>
+              <button onClick={() => goToSection("service")}>Serviços</button>
             </li>
             <li>
-              <a onClick={() => setOpen(false)} href="/#more">
-                Mais
-              </a>
+              <button onClick={() => goToSection("more")}>Mais</button>
             </li>
             <li>
-              <a onClick={() => setOpen(false)} href="/#contact">
-                Contato
-              </a>
+              <button onClick={() => goToSection("contact")}>Contato</button>
             </li>
             <li>
-              <Link onClick={() => setOpen(false)} to={"/product"}>
+              <Link to="/product" onClick={() => setOpen(false)}>
                 Nossos Produtos
               </Link>
             </li>

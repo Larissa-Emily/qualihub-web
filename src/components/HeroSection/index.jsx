@@ -1,8 +1,8 @@
 import HeroImage from "../../assets/hero-woman.png";
 
-export default function Home() {
+export default function HeroSection({ onContactClick }) {
   return (
-    <main className="w-full overflow-hidden font-jakarta max-xl:py-12">
+    <main className="w-full overflow-hidden font-jakarta max-xl:py-12" id="home">
       <section className="w-full flex items-center justify-center py-20 px-6 xl:px-20 bg-white">
         <div className="max-w-[1400px] w-full grid grid-cols-1 xl:grid-cols-2 gap-14 items-center">
 
@@ -20,8 +20,11 @@ export default function Home() {
               segurança às decisões técnicas.
             </p>
 
-            <button className="mt-8 bg-[#FC7031] hover:bg-[#e9652b] transition text-white font-semibold px-8 py-3 rounded-md">
-              <a href="#contact">Conheça nossa abordagem</a>
+            <button
+              onClick={onContactClick}
+              className="mt-8 bg-[#FC7031] hover:bg-[#e9652b] transition text-white font-semibold px-8 py-3 rounded-md"
+            >
+              Conheça nossa abordagem
             </button>
           </div>
 

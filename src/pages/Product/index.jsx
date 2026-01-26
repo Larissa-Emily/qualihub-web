@@ -75,11 +75,15 @@ export default function Product() {
                 Automatize a emissão, gestão e controle de certificados digitais
                 com segurança, rastreabilidade e conformidade legal.
               </p>
-              <button className="mt-auto bg-[#125dff] hover:bg-[#0b3ca7] text-white h-[40px] rounded-lg cursor-pointer">
-                <a target="_blank" href="https://mecertificaai.online/">
-                  Saiba mais
-                </a>
-              </button>
+              <a
+                target="_blank"
+                href="https://mecertificaai.online/"
+                className="mt-auto h-[40px] rounded-lg cursor-pointer
+             flex items-center justify-center
+             bg-[#125dff] hover:bg-[#0b3ca7] text-white"
+              >
+                Saiba mais
+              </a>
             </div>
           </article>
 
@@ -98,11 +102,13 @@ export default function Product() {
                 Plataforma inteligente para divulgação, gestão e locação de
                 espaços, conectando anunciantes e locatários.
               </p>
-              <button className="mt-auto bg-[#f37517] hover:bg-[#b85911] text-white h-[40px] rounded-lg cursor-pointer">
-                <a target="_blank" href="https://www.woohub.online/">
-                  Saiba mais
-                </a>
-              </button>
+              <a
+                target="_blank"
+                href="https://www.woohub.online/"
+                className="mt-auto bg-[#f37517] hover:bg-[#b85911] text-white h-[40px] rounded-lg cursor-pointer flex items-center justify-center"
+              >
+                Saiba mais
+              </a>
             </div>
           </article>
 
@@ -125,12 +131,13 @@ export default function Product() {
                 Centralize controles, reduza riscos operacionais e garanta
                 conformidade com normas e processos críticos do negócio.
               </p>
-              <button className="mt-auto bg-[#0d9082] hover:bg-[#07554d] text-white h-[40px] rounded-lg cursor-pointer">
-                <a target="_blank" href="https://www.assurex.com.br/">
-                  {" "}
-                  Saiba mais
-                </a>
-              </button>
+              <a
+                target="_blank"
+                href="https://www.assurex.com.br/"
+                className="mt-auto bg-[#0d9082] hover:bg-[#07554d] text-white h-[40px] rounded-lg cursor-pointer flex items-center justify-center"
+              >
+                Saiba mais
+              </a>
             </div>
           </article>
 
@@ -153,17 +160,19 @@ export default function Product() {
                 Facilite cobranças, automatize transações e tenha controle
                 financeiro com uma solução segura e escalável.
               </p>
-              <button className="mt-auto bg-[#6241d7] hover:bg-[#3d13d4] text-white h-[40px] rounded-lg cursor-pointer">
-                <a href="https://www.orixpay.com.br/" target="_blank">
-                  Saiba mais
-                </a>
-              </button>
+              <a
+                href="https://www.orixpay.com.br/"
+                target="_blank"
+                className="mt-auto bg-[#6241d7] hover:bg-[#3d13d4] text-white h-[40px] rounded-lg cursor-pointer flex items-center justify-center"
+              >
+                Saiba mais
+              </a>
             </div>
           </article>
         </div>
       </div>
       <footer>
-    <FooterSection/>
+        <FooterSection />
       </footer>
     </section>
   );
