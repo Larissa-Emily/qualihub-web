@@ -77,7 +77,7 @@ export default function Product() {
               </p>
               <a
                 target="_blank"
-                href="https://mecertificaai.online/"
+                href="https://www.mecertificaai.com/"
                 className="mt-auto h-[40px] rounded-lg cursor-pointer
              flex items-center justify-center
              bg-[#125dff] hover:bg-[#0b3ca7] text-white"
